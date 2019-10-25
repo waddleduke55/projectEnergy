@@ -1,5 +1,5 @@
 YO what's up guys. Make sure you have Django and Python installed before trying to do anything with this repo.
-Once you have that done, clone this directory, open Terminal and navigate to the directory on your computer.
+Once you have that done, clone this repo, open Terminal and navigate to the directory on your computer
 THEN, type
 ```
 python3 manage.py runserver
