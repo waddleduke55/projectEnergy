@@ -11,4 +11,5 @@ You can play around with the data models we have, you can add some instances. En
 
 Note: after pulling current repository from git, run the following two commands to synchronize the database:
 ```python3 manage.py makemigrations```
+
 ```python3 manage.py migrate```
