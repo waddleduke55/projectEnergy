@@ -37,7 +37,7 @@ def importData():
     with open('data/Countries.csv') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            p = models.Member(email=row['email'], name=row['name'])
+            p = models.Country(name=row['name'], percent_pop_needs_elec=row['percent_pop_needs_elec'])
             p.save()
 
 
