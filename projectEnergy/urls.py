@@ -21,4 +21,5 @@ from matchmaker import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', views.home, name='home'),
+    path('test/', views.test, name="test"), # THIS IS SOLELY FOR MILESTONE 2 PROGRESS REPORT
 ]

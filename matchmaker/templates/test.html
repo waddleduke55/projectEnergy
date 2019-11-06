@@ -1,0 +1,13 @@
+<!-- This is solely for milestone 2 progress report -->
+<html lang="en-US">
+<div>
+    <h4>
+        Email, Phone, Country
+    </h4>
+    {% for seller in sellers_in_egypt %}
+    <div>
+        {{ seller.email }}, {{ seller.phone_number }}, {{ seller.country_name }}
+    </div>
+    {% endfor %}
+</div>
+</html>
