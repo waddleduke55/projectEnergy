@@ -1,5 +1,13 @@
+{% load static %}
 <html lang="en-US">
-<div>
-    This is our home page.
-</div>
+    <head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <h1> Welcome to our homepage.</h1>
+    </head>
+
+    {% for seller in sellers_in_egypt %}
+    <div class="seller">
+        {{ seller.email }}, {{ seller.phone_number }}, {{ seller.country_name }}
+    </div>
+    {% endfor %}
 </html>
