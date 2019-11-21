@@ -9,3 +9,23 @@ def home(request):
 def test(request):
     sellers_in_egypt = Seller.objects.filter(country_name='Egypt')
     return render(request, 'test.html', {'sellers_in_egypt': sellers_in_egypt})
+
+def matchmaker(request):
+	#(prices, countries, sortBy) = get_sql_params() - i'm not sure what to do with this
+	prices = [.01, .05]
+	countries = ['Benin', 'Angola']
+	sortBy = ['price_per_kwh','country_name']
+
+	if len(prices) > 0:
+		table = Seller.objects.filter(price_per_kwh__gte=prices[0], price_per_kwh__lte=prices[1])
+	else: table = Seller.objects.all()
+
+	if len(countries) > 0:
+		table = table.filter(country_name__in=countries)
+
+	if len(sortBy) == 1:
+			table = table.order_by(sortBy[0])
+	if len(sortBy) == 2:
+		table = table.order_by(sortBy[0], sortBy[1])
+
+	return render(request, 'matchmaker.html', {'matches': table})

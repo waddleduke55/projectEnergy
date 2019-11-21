@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="en-US">
+    <head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <h1> Welcome to matchmaker.</h1>
+    </head>
+    <div>
+    	<h4> table </h4>
+    </div>
+
+    {% for seller in matches %}
+    <div class="seller">
+        {{ seller.email }}, {{ seller.phone_number }}, {{ seller.country_name }}, {{seller.price_per_kwh}}
+    </div>
+    {% endfor %}
+</html>
