@@ -44,3 +44,14 @@ def newseller(request):
 
 def thankyou(request):
 	return render(request, 'thankyou.html')
+
+def countries(request):
+	
+	hasSeller = []
+	for c in Country.objects.all():
+		if (c==s.country_name for s in Seller.objects.all()):
+			hasSeller.append('yes')
+		else:
+			hasSeller.append('no')
+	myList= zip(Country.objects.values_list('name'), Country.objects.values_list('percent_pop_needs_elec'), hasSeller)
+	return render(request, 'countries.html', {'myList': myList})
