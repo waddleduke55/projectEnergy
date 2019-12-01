@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Seller
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from .forms import SellerForm
 
 def home(request):
     sellers_in_egypt = Seller.objects.filter(country_name='Egypt')
@@ -29,3 +31,16 @@ def matchmaker(request):
 		table = table.order_by(sortBy[0], sortBy[1])
 
 	return render(request, 'matchmaker.html', {'matches': table})
+
+def newseller(request):
+	if request.method == 'POST':
+		form = SellerForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/newseller/thankyou/')
+	else:
+		form = SellerForm()
+	return render(request, 'newseller.html', {'form': form})
+
+def thankyou(request):
+	return render(request, 'thankyou.html')

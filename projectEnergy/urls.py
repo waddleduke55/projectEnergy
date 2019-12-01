@@ -23,4 +23,6 @@ urlpatterns = [
     re_path(r'^$', views.home, name='home'),
     path('match/', views.matchmaker, name='matchmaker'),
     path('test/', views.test, name="test"), # THIS IS SOLELY FOR MILESTONE 2 PROGRESS REPORT
+    path('newseller/', views.newseller, name="newseller"),
+    path('newseller/thankyou/', views.thankyou, name="thankyou"),
 ]
